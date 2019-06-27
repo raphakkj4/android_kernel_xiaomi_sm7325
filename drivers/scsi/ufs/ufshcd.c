@@ -1929,7 +1929,7 @@ static ssize_t ufshcd_clkgate_enable_store(struct device *dev,
 		goto out;
 
 	if (value)
-		__ufshcd_release(hba);
+		hba->clk_gating.active_reqs--;
 	else
 		hba->clk_gating.active_reqs++;
 
